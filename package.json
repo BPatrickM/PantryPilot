@@ -1,6 +1,7 @@
 {
   "name": "pantry-pilot",
   "version": "1.1.0",
+  "private": true,
   "packageManager": "yarn@1.22.19",
   "workspaces": [
     "apps/*",
