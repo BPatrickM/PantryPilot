@@ -15,8 +15,9 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@pantry-pilot/core": ["./src"]
-    }
+       "@/*": ["./src/*"],
+       "@pantry-pilot/core": ["../../packages/core/src"]
+}
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
