@@ -52,3 +52,4 @@ export function DinerCountInput({ nDiners, onChange, onNext, onBack }: DinerCoun
     </div>
   );
 }
+export default DinerCountInput;
