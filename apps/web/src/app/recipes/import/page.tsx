@@ -1,5 +1,8 @@
 'use client';
 
+import { parseRecipeText } from '@pantry-pilot/core';
+import type { ParsedRecipe, ParsedIngredientLine } from '@pantry-pilot/core';
+
 import { useState } from 'react';
 import Link from 'next/link';
 
