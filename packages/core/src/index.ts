@@ -7,8 +7,13 @@ export const STOCK_LEVELS = {
   plenty:        { label: 'Plenty',              multiplier: 1.00, icon: '✅', emoji: '✅', color: '#16a34a' },
 } as const;
 
-export function getStockLevelOptions() {
-  return Object.entries(STOCK_LEVELS).map(([value, data]) => ({ value, ...data }));
+export type StockLevel = keyof typeof STOCK_LEVELS;
+
+export function getStockLevelOptions(): Array<{ value: StockLevel; label: string; multiplier: number; icon: string; emoji: string; color: string }> {
+  return (Object.keys(STOCK_LEVELS) as StockLevel[]).map(value => ({
+    value,
+    ...STOCK_LEVELS[value],
+  }));
 }
 
 export function parseRecipeText(text: string) {
