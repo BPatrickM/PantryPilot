@@ -74,3 +74,4 @@ export function MealCard({ meal, isSelected, onSelect, nDiners = 2 }: MealCardPr
     </div>
   );
 }
+export default MealCard;
