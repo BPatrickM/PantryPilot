@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["NODE_ENV", "SUPABASE_URL", "SUPABASE_ANON_KEY"],
-  "tasks": {
+  "pipeline": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "dist/**"]
@@ -10,9 +10,6 @@
       "cache": false,
       "persistent": true
     },
-    "lint": {},
-    "test": {
-      "cache": false
-    }
+    "lint": {}
   }
 }
