@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { parseRecipeText } from '@pantry-pilot/core';
-import type { ParsedRecipe, ParsedIngredientLine } from '@pantry-pilot/core';
 
 const CONFIDENCE_STYLES = {
   high:   { color: 'text-green-700 bg-green-50 border-green-200', icon: '✓' },
