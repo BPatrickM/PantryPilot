@@ -35,16 +35,13 @@ export default function SignupPage() {
           <p className="text-gray-500 text-sm mt-1">Create your free account</p>
         </div>
         <div className="space-y-3">
-          <input type="email" placeholder="Email" value={email}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
             onChange={e => setEmail(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400" />
-          <input type="password" placeholder="Password (min 6 chars)" value={password}
-            onChange={e => setPassword(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400" />
-        </div>
-        {error && <p className="text-sm text-red-600 text-center">{error}</p>}
-        {message && <p className="text-sm text-green-600 text-center">{message}</p>}
-        <button
-          onClick={handleSignup}
-          disabled={loading || !email || !password}
-          className="w-full bg-blue-700 text-white py-3 rounded-xl font-semibold hover:
+            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400"
+          />
+          <input
+            type="password"
+            placeholder="Pas
