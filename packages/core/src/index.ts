@@ -1,10 +1,10 @@
 export * from './types';
 
 export const STOCK_LEVELS = {
-  just_a_little: { label: 'Just a little left', multiplier: 0.10, icon: '🟥', color: '#ef4444' },
-  about_half:    { label: 'About half',          multiplier: 0.50, icon: '🟨', color: '#f59e0b' },
-  almost_full:   { label: 'Almost full',         multiplier: 0.85, icon: '🟩', color: '#22c55e' },
-  plenty:        { label: 'Plenty',              multiplier: 1.00, icon: '✅', color: '#16a34a' },
+  just_a_little: { label: 'Just a little left', multiplier: 0.10, icon: '🟥', emoji: '🟥', color: '#ef4444' },
+  about_half:    { label: 'About half',          multiplier: 0.50, icon: '🟨', emoji: '🟨', color: '#f59e0b' },
+  almost_full:   { label: 'Almost full',         multiplier: 0.85, icon: '🟩', emoji: '🟩', color: '#22c55e' },
+  plenty:        { label: 'Plenty',              multiplier: 1.00, icon: '✅', emoji: '✅', color: '#16a34a' },
 } as const;
 
 export function getStockLevelOptions() {
