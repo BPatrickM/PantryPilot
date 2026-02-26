@@ -1,9 +1,31 @@
 'use client';
 import { useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSignup = async () => {
+    setLoading(true);
+    setError('');
+    setMessage('');
+    const { error } = await supabase.auth.signUp({ email, password });
+    if (error) {
+      setError(error.message);
+    } else {
+      setMessage('Check your email for a confirmation link!');
+    }
+    setLoading(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-700 to-blue-900 flex items-center justify-center p-4">
@@ -16,17 +38,13 @@ export default function SignupPage() {
           <input type="email" placeholder="Email" value={email}
             onChange={e => setEmail(e.target.value)}
             className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400" />
-          <input type="password" placeholder="Password" value={password}
+          <input type="password" placeholder="Password (min 6 chars)" value={password}
             onChange={e => setPassword(e.target.value)}
             className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400" />
         </div>
-        <button className="w-full bg-blue-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-800 transition-colors">
-          Create Account
-        </button>
-        <p className="text-center text-sm text-gray-500">
-          Already have an account? <a href="/login" className="text-blue-700 font-medium">Sign in</a>
-        </p>
-      </div>
-    </div>
-  );
-}
+        {error && <p className="text-sm text-red-600 text-center">{error}</p>}
+        {message && <p className="text-sm text-green-600 text-center">{message}</p>}
+        <button
+          onClick={handleSignup}
+          disabled={loading || !email || !password}
+          className="w-full bg-blue-700 text-white py-3 rounded-xl font-semibold hover:
