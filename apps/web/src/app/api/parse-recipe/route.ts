@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { parseRecipeText } from '@pantry-pilot/core';
 
 export async function POST(req: NextRequest) {
   try {
